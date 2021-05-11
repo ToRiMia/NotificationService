@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package skysoft.enterprise.backend.notification;
+
+option csharp_namespace = "SkySoft.Enterprise.Notifications.Grpc.Protos.Notifications";
+
+service Notification{
+  rpc SendNotification(NotificationRequest) returns (NotificationReply);
+
+  rpc BotsReply(BotResponse) returns (Empty);
+}
+
+message NotificationRequest{
+  Recipient Recipient = 1;
+  EventType MessageType = 2;
+  ChannelType ChannelType = 3;
+  VariablesKeyValue Variables = 4;
+
+  message VariablesKeyValue {
+    map<string, string> Values = 1;
+  }
+}
+
+message BotResponse{
+  string Id = 1;
+  map<string, string> Parameters = 2;
+}
+
+message Empty {
+
+}
+
+enum EventType {
+  ProjectAssignment = 0;
+  RegisterInvite = 1;
+  Mfa = 2;
+}
+
+enum ChannelType {
+  None = 0;
+  Email = 1;
+  Telegram = 3;
+  Push = 5;
+  WebPush = 7;
+}
+
+message NotificationReply{
+  bool SendingStatus = 1;
+}
+
+message Recipient{
+  string UserName = 1;
+}

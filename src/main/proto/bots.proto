@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 package skysoft.enterprise.backend.bots;
-
 option csharp_namespace = "SkySoft.Enterprise.Notifications.Grpc.Protos.Bots";
 
 service Bots{
@@ -10,9 +9,10 @@ service Bots{
 
 message Scenario{
   string Id = 1;
-  ScenarioType Type = 2;
-  ScenarioData Data = 3;
-  BotType BotType = 4;
+  string UserIdentifier = 2;
+  ScenarioType Type = 3;
+  ScenarioData Data = 4;
+  BotType BotType = 5;
 }
 
 message ScenarioData{
@@ -25,12 +25,12 @@ message Empty{
 }
 
 enum ScenarioType{
-  Mfa = 0;
-  Notification = 1;
-  TaskDialog = 2;
+  MfaScenario = 0;
+  NotificationScenario = 1;
+  TaskDialogScenario = 2;
 }
 
 enum BotType{
-  Telegram = 0;
-  Slack = 1;
+  TelegramBot = 0;
+  SlackBot = 1;
 }

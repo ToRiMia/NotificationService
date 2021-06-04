@@ -17,6 +17,7 @@
         <java.version>11</java.version>
         <telegram.version>5.1.1</telegram.version>
         <grpc.version>1.24.0</grpc.version>
+        <pgv.version>0.4.1</pgv.version>
     </properties>
     <dependencies>
         <dependency>
@@ -57,6 +58,18 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/io.envoyproxy.protoc-gen-validate/pgv-java-stub &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.envoyproxy.protoc-gen-validate</groupId>-->
+<!--            <artifactId>pgv-java-stub</artifactId>-->
+<!--            <version>${pgv.version}</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.xolstice.maven.plugins/protobuf-maven-plugin &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.xolstice.maven.plugins</groupId>-->
+<!--            <artifactId>protobuf-maven-plugin</artifactId>-->
+<!--            <version>0.6.1</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>

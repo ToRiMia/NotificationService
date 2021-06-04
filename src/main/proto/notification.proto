@@ -14,16 +14,19 @@ message NotificationRequest{
   Recipient Recipient = 1;
   EventType MessageType = 2;
   ChannelType ChannelType = 3;
-  VariablesKeyValue Variables = 4;
+  string Message = 4;
+  VariablesKeyValue Variables = 5;
 
-  message VariablesKeyValue {
+  message VariablesKeyValue{
     map<string, string> Values = 1;
   }
 }
 
 message BotResponse{
   string Id = 1;
-  map<string, string> Parameters = 2;
+  string UserIdentifier = 2;
+  BotType BotType = 3;
+  map<string, string> Parameters = 4;
 }
 
 message Empty {
@@ -39,9 +42,14 @@ enum EventType {
 enum ChannelType {
   None = 0;
   Email = 1;
-  Telegram = 3;
-  Push = 5;
-  WebPush = 7;
+  Telegram = 2;
+  Push = 3;
+  WebPush = 4;
+}
+
+enum BotType{
+  TelegramBot = 0;
+  SlackBot = 1;
 }
 
 message NotificationReply{
